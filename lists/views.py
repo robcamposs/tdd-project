@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.urls import path # Importe 'path' em vez de 'url'
+from lists import views
 
-# Create your views here.
-def home_page():
-    pass
+urlpatterns = [
+    path('', views.home_page, name='home'), # Use path com string vazia para a raiz
+]
