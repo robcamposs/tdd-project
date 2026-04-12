@@ -1,6 +1,5 @@
-from django.urls import path # Importe 'path' em vez de 'url'
-from lists import views
+from django.http import HttpResponse
 
-urlpatterns = [
-    path('', views.home_page, name='home'), # Use path com string vazia para a raiz
-]
+# Create your views here.
+def home_page(request):
+    return HttpResponse('<html><title>To-Do lists</title></html>')
