@@ -6,13 +6,12 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
 
-    # ESTE É O PASSO 7:
     def test_can_save_a_POST_request(self):
-        # Envia um POST para a raiz '/' com os dados do formulário
+        # 1. Envia o POST
         response = self.client.post('/', data={'item_text': 'A new list item'})
         
-        # Verifica se o texto enviado aparece no HTML da resposta
+        # 2. Verifica se o texto está no HTML
         self.assertIn('A new list item', response.content.decode())
         
-        # Opcional: Verifica se ainda estamos usando o template correto
+        # 3. O AJUSTE: Verifica se usou o template home.html
         self.assertTemplateUsed(response, 'home.html')
